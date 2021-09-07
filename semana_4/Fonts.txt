@@ -1,0 +1,9 @@
+Fonts used in this design:
+
+Font: Quicksand
+Author: Andrew Paglinawan
+Url: http://www.fontsquirrel.com/fonts/quicksand
+
+Font: Satisfy
+Author: Sideshow
+Url: https://www.fontsquirrel.com/fonts/satisfy

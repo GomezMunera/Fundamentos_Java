@@ -1,0 +1,3 @@
+pruebaslambda.PruebasLambda
+pruebaslambda.MiValor
+pruebaslambda.MiValParam

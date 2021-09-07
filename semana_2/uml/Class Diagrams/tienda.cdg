@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="tienda">
+  <ClassDiagramComponents>
+    <Class name="Tienda" package="" visibility="public" xPosition="30.0" yPosition="147.0">
+      <Fields>
+        <Field name="Nombre" type="String" visibility="private"/>
+        <Field name="creacion" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="inventario" returnType="void" visibility="public"/>
+        <Method name="vender" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Producto" package="" visibility="public" xPosition="354.0" yPosition="45.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="obtenerPrecio" returnType="Marca" visibility="public">
+          <Argument type="Marca" name="marca"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Sede" package="" visibility="public" xPosition="354.0" yPosition="195.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Marca" package="" visibility="public" xPosition="690.0" yPosition="112.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Empleado" package="" visibility="public" xPosition="354.0" yPosition="325.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Panaderia" package="" visibility="public" xPosition="30.0" yPosition="22.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Cliente" package="" visibility="public" xPosition="119.0" yPosition="486.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Herramienta" package="" visibility="public" xPosition="597.0" yPosition="325.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Martillo" package="" visibility="public" xPosition="597.0" yPosition="497.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Cuenta" package="" visibility="public" xPosition="119.0" yPosition="644.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Interface name="Persona" package="" visibility="public" xPosition="354.0" yPosition="455.0">
+      <Methods>
+        <Method name="Comprar" returnType="void" visibility="public"/>
+        <Method name="Pagar" returnType="void" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public"/>
+        <Method name="setDNI" returnType="void" visibility="public"/>
+        <Method name="setEdad" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="Producido por" source="Producto" target="Marca" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <IsRelation name="is" source="Martillo" target="Herramienta"/>
+    <HasRelation name="Arrienda" source="Tienda" target="Sede" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="Compra" source="Cliente" target="Tienda" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Empleado" target="Persona"/>
+    <UseRelation name="Utiliza" source="Empleado" target="Herramienta" sourceCardinality="1..*" targetCardinality="1..*"/>
+    <IsRelation name="is" source="Panaderia" target="Tienda"/>
+    <HasRelation name="Vende" source="Tienda" target="Producto" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="Contrata" source="Tienda" target="Empleado" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Cliente" target="Persona"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

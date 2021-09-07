@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="diagramaEje">
+  <ClassDiagramComponents>
+    <Class name="Tienda" package="" visibility="public" xPosition="489.0" yPosition="24.0">
+      <Fields>
+        <Field name="Nombre" type="String" visibility="private"/>
+        <Field name="Ciudad" type="String" visibility="private"/>
+        <Field name="ID" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="Tienda" returnType="void" visibility="public"/>
+        <Method name="Contratar" returnType="void" visibility="public">
+          <Argument type="Trabajador" name="nombre"/>
+        </Method>
+        <Method name="pagarArriendo" returnType="void" visibility="public">
+          <Argument type="double" name="precio"/>
+        </Method>
+        <Method name="inventario" returnType="Producto[]" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Producto" package="" visibility="public" xPosition="759.0" yPosition="240.0">
+      <Fields>
+        <Field name="IVA" type="double" visibility="private"/>
+        <Field name="precio" type="double" visibility="private"/>
+        <Field name="lugar" type="String" visibility="private"/>
+        <Field name="moneda" type="String" visibility="private"/>
+        <Field name="Stock" type="int" visibility="private"/>
+        <Field name="cantidad" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="Producto" returnType="void" visibility="public"/>
+        <Method name="ponerPrecio" returnType="int" visibility="public">
+          <Argument type="int" name="precio"/>
+        </Method>
+        <Method name="cambiarLugar" returnType="void" visibility="public"/>
+        <Method name="ponerIva" returnType="void" visibility="public">
+          <Argument type="double" name="iva"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Persona" package="" visibility="public" xPosition="70.0" yPosition="564.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="edad" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="comprar" returnType="Producto" visibility="public">
+          <Argument type="Producto" name="product"/>
+        </Method>
+        <Method name="suscribir" returnType="Tienda" visibility="public">
+          <Argument type="Tienda" name="tiendas"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Cliente" package="" visibility="public" xPosition="6.0" yPosition="40.0">
+      <Fields>
+        <Field name="ID" type="String" visibility="private"/>
+        <Field name="tipoCliente" type="String" visibility="private"/>
+        <Field name="Telefono" type="int" visibility="private"/>
+        <Field name="promCompras" type="double" visibility="private"/>
+        <Field name="Score" type="double" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="comprarCredito" returnType="void" visibility="public">
+          <Argument type="Producto[]" name="lista"/>
+        </Method>
+        <Method name="pagarCredito" returnType="double" visibility="public">
+          <Argument type="double" name="pago"/>
+        </Method>
+        <Method name="comprar" returnType="Factura" visibility="public">
+          <Argument type="Producto[]" name="lista"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Trabajador" package="" visibility="public" xPosition="471.0" yPosition="564.0">
+      <Fields>
+        <Field name="cargo" type="String" visibility="private"/>
+        <Field name="salario" type="double" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="cargarInventario" returnType="void" visibility="public"/>
+        <Method name="vender" returnType="int" visibility="public">
+          <Argument type="Producto" name="producto"/>
+          <Argument type="int" name="cantidad"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Factura" package="" visibility="public" xPosition="297.0" yPosition="240.0">
+      <Fields>
+        <Field name="ID" type="int" visibility="private"/>
+        <Field name="comprador" type="Cliente" visibility="private"/>
+        <Field name="lista" type="Producto[]" visibility="private"/>
+        <Field name="Pagada" type="Boolean" visibility="private"/>
+        <Field name="TipoPago" type="String" visibility="private"/>
+        <Field name="vendedor" type="Trabajador" visibility="private"/>
+        <Field name="conFac" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="total" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Trabajador" target="Persona"/>
+    <HasRelation name="Recibe" source="Cliente" target="Factura" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="Ofrece" source="Tienda" target="Producto" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <UseRelation name="Compra" source="Cliente" target="Producto" sourceCardinality="1..1" targetCardinality="1..*"/>
+    <HasRelation name="Contrata" source="Tienda" target="Trabajador" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <UseRelation name="Facturar" source="Trabajador" target="Producto" sourceCardinality="1..*" targetCardinality="1..1"/>
+    <HasRelation name="Contiene" source="Factura" target="Producto" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="Vende" source="Tienda" target="Cliente" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <IsRelation name="is" source="Cliente" target="Persona"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
